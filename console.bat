@@ -1,0 +1,1 @@
+cmd.exe /K "set PATH=masm32\bin;%PATH%"

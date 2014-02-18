@@ -1,0 +1,26 @@
+
+EXE= main.exe
+OBJS=main.obj
+
+
+include_path="masm32\include"
+include_path="masm32\include"
+
+ML_FLAG=/c /coff
+LINK_FLAG=/subsystem:windows
+
+all: $(EXE)
+
+$(EXE):$(OBJS)
+	link $(LINK_FLAG) $(OBJS)
+	
+.asm.obj:
+	@echo off
+	set include=masm32\include
+	set lib=masm32\lib
+	set path=masm32\bin
+	@echo on
+	masm32\bin\ml $(ML_FLAG) $<
+	
+clean:
+	del *.obj *.exe
